@@ -11,11 +11,11 @@
         </header>
         <div class="search-line">
             <span class="iconfont icon-search"></span>
-            <input type="text" placeholder="微信号/手机号">
+            <input type="text" v-model="inputValue" @input="debouncedInput" placeholder="微信号/手机号">
         </div>
         <p style="padding-top:8px;text-align: center;">
             <span>我的微信号:</span>
-            <span>10086</span>
+            <span>{{ wechatId }}</span>
             <router-link to="/self/profile/my-qrcode">&nbsp;<img src="/images/contact_add-friend-my-qr.png" style="vertical-align: middle;;width:24px" class="_align-middle"></router-link>
         </p>
         <div class="weui-cells">
@@ -63,7 +63,57 @@
     </div>
 </template>
 <script>
-    export default {}
+    export default {
+        data() {
+            return {
+                wechatId: '10086',
+                inputValue: undefined,
+            };
+        },
+        created() {
+            const wechatId = localStorage.getItem('wechatId');
+            if (wechatId) {
+                this.wechatId = wechatId;
+            }
+            this.debouncedInput = this.debounce(this.handleInput, 900); // 900毫秒的防抖
+        },
+        methods: {
+            handleInput() {
+                console.log('当前输入:', this.inputValue);
+                // 添加输入的账号为好友
+                const friend = { //昵称备注都有的朋友
+                    "wxid": this.inputValue,
+                    "initial": 'a',
+                    "headerUrl": "/images/header/header01.png",
+                    "nickname": "新好友",
+                    "sex": 1,
+                    "remark": "新好友",
+                    "signature": "很丰富，简介不了",
+                    "telphone": 15573220014,
+                    "album": [{
+                        imgSrc: ""
+                    }],
+                    "area": ["中国", "北京", "海淀"],
+                    "from": "",
+                    "tag": "",
+                    "desc": {
+                    }
+                };
+                this.$store.commit("addNewFriend", friend);
+                this.$router.back();
+            },
+            debounce(func, delay) {
+                let timeout;
+                return function(...args) {
+                    const context = this;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => {
+                        func.apply(context, args);
+                    }, delay);
+                };
+            }
+        }
+    }
 </script>
 <style>
     .add-friend .search-line {

@@ -135,7 +135,11 @@ const routes = [{
     {
         path: '/self/profile',
         components: { "default": resolve => require(["../components/self/self.vue"], resolve), "subPage": resolve => require(["../components/common/profile.vue"], resolve) }
-    }, {
+    },
+    {
+        path: '/self/profile/edit-nick',
+        components: { "subPage": resolve => require(["../components/self/edit-nick.vue"], resolve) }
+    },{
         path: '/self/profile/my-qrcode',
         components: { "subPage": resolve => require(["../components/self/my-qrcode.vue"], resolve) }
     }, {

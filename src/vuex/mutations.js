@@ -42,5 +42,13 @@ const mutations = {
     // cancelMsgStick(state, mid) {
 
     // }
+    // 添加好友
+    addNewFriend(state, friend) {
+        console.log('state.allContacts------', state.allContacts);
+        const friendArr = [...state.allContacts];
+        friendArr.push(friend);
+        console.log('friendArr=======', friendArr);
+        state.allContacts = friendArr;
+    },
 }
 export default mutations

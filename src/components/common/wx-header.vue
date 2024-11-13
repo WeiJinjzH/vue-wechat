@@ -5,6 +5,8 @@
     <div class="other">
       <!--只在“微信”页显示 更多图标-->
       <span class="iconfont icon-tips-jia" v-show="$route.path==='/'" v-on:click="$store.commit('toggleTipsStatus')"></span>
+      <!-- 只在修改昵称页显示 保存按钮 -->
+      <span v-show="$route.path==='/self/profile/edit-nickk'">保存</span>
       <!--只在“通讯录”页显示 显示添加好友图标-->
       <router-link tag="span" to="/contact/add-friend" class="iconfont icon-tips-add-friend" v-show="$route.path==='/contact'"></router-link>
       <!--只在“添加朋友”页显示 -->

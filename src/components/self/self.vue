@@ -8,9 +8,9 @@
             <img src="/images/header/header01.png" alt="" class="self-header">
           </div>
           <div class="weui-cell__bd">
-            <h4 class="self-nickname">阿荡</h4>
+            <h4 class="self-nickname">{{ nickName }}</h4>
 
-            <p class="self-wxid">微信号: zhaohd</p>
+            <p class="self-wxid">微信号: {{ wechatId }}</p>
           </div>
           <div class="weui-cell__ft">
             <img src="/images/chat-info-qr.png">
@@ -79,11 +79,22 @@
     mixins: [window.mixin],
     data() {
       return {
-        "pageName": "我"
+        "pageName": "我",
+        nickName: '阿荡',
+        wechatId: '10086',
       }
     },
     mounted() {
       this.$store.commit("toggleTipsStatus", -1)
+      // 检查 localStorage 中是否有昵称数据
+      const nickName = localStorage.getItem('nickName');
+        if (nickName) {
+            this.nickName = nickName;
+        }
+        const wechatId = localStorage.getItem('wechatId');
+        if (wechatId) {
+            this.wechatId = wechatId;
+        }
     },
     activated() {
       this.$store.commit("toggleTipsStatus", -1)
