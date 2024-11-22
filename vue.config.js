@@ -19,12 +19,4 @@ module.exports = {
       .loader('url-loader')
       .tap(options => Object.assign(options, { limit: 10240 }))
   },
-
-  css: {
-    loaderOptions: {
-      less: {
-        javascriptEnabled: false,
-      }
-    }
-  }
 }
