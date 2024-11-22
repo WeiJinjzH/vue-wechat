@@ -23,7 +23,7 @@
         <div class="weui-cells message-list">
             <div class="weui-cell">
                 <div class="weui-cell__hd">
-                    <img src="/images/header/header02.png" alt=""> </div>
+                    <img :src="getIconPath('header/header02.png')" alt=""> </div>
                 <div class="weui-cell__bd weui-cell_primary">
                     <p><b>路飞</b></p>
                     <p><span>来自手机通讯录</span></p>
@@ -32,7 +32,7 @@
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__hd">
-                    <img src="/images/header/header02.png" alt=""></div>
+                    <img :src="getIconPath('header/header02.png')" alt=""></div>
                 <div class="weui-cell__bd weui-cell_primary">
                     <p><b>娜美</b></p>
                     <p><span>来自手机联系人</span></p>
@@ -41,7 +41,7 @@
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__hd">
-                    <img src="/images/header/header02.png" alt=""></div>
+                    <img :src="getIconPath('header/header02.png')" alt=""></div>
                 <div class="weui-cell__bd weui-cell_primary">
                     <p><b>乌索普</b></p>
                     <p><span>来自账号查找</span></p>
@@ -53,6 +53,7 @@
 </template>
 <script>
     import search from "../common/search"
+    import ResourceManager from '@/utils/resource';
     export default {
         components: {
             search
@@ -61,7 +62,12 @@
             return {
                 pageName: "新的朋友"
             }
-        }
+        },
+      methods:{
+        getIconPath(iconName) {
+          return ResourceManager.getAvatarPath(iconName)
+        },
+      }
     }
 </script>
 <style lang="less">

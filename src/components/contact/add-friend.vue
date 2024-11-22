@@ -16,11 +16,11 @@
         <p style="padding-top:8px;text-align: center;">
             <span>我的微信号:</span>
             <span>{{ wechatId }}</span>
-            <router-link to="/self/profile/my-qrcode">&nbsp;<img src="/images/contact_add-friend-my-qr.png" style="vertical-align: middle;;width:24px" class="_align-middle"></router-link>
+            <router-link to="/self/profile/my-qrcode">&nbsp;<img :src="getIconPath('contact_add-friend-my-qr.png')" style="vertical-align: middle;;width:24px" class="_align-middle"></router-link>
         </p>
         <div class="weui-cells">
             <a class="weui-cell weui-cell_access">
-                <div class="weui-cell__hd"><img src="/images/contact_add-friend-reda.png" alt=""></div>
+                <div class="weui-cell__hd"><img :src="getIconPath('images/contact_add-friend-reda.png')" alt=""></div>
                 <div class="weui-cell__bd">
                     <p>雷达加朋友</p>
                     <p>添加身边的朋友</p>
@@ -28,7 +28,7 @@
                 <div class="weui-cell__ft"></div>
             </a>
             <a class="weui-cell weui-cell_access">
-                <div class="weui-cell__hd"><img src="/images/contact_add-friend-addgroup.png" alt=""></div>
+                <div class="weui-cell__hd"><img :src="getIconPath('contact_add-friend-addgroup.png')" alt=""></div>
                 <div class="weui-cell__bd">
                     <p>面对面建群</p>
                     <p>与身边的朋友进入同一个群聊</p>
@@ -36,7 +36,7 @@
                 <div class="weui-cell__ft"></div>
             </a>
             <a class="weui-cell weui-cell_access">
-                <div class="weui-cell__hd"><img src="/images/contact_add-friend-scanqr.png" alt=""></div>
+                <div class="weui-cell__hd"><img :src="getIconPath('contact_add-friend-scanqr.png')" alt=""></div>
                 <div class="weui-cell__bd">
                     <p>扫一扫</p>
                     <p>扫描二维码名片</p>
@@ -44,7 +44,7 @@
                 <div class="weui-cell__ft"></div>
             </a>
             <a class="weui-cell weui-cell_access">
-                <div class="weui-cell__hd"><img src="/images/contact_add-friend-contacts.png" alt=""></div>
+                <div class="weui-cell__hd"><img :src="getIconPath('contact_add-friend-contacts.png')" alt=""></div>
                 <div class="weui-cell__bd">
                     <p>手机联系人</p>
                     <p>添加通讯录中的朋友</p>
@@ -52,7 +52,7 @@
                 <div class="weui-cell__ft"></div>
             </a>
             <a class="weui-cell weui-cell_access">
-                <div class="weui-cell__hd"><img src="/images/contact_add-friend-offical.png" alt=""></div>
+                <div class="weui-cell__hd"><img :src="getIconPath('contact_add-friend-offical.png')" alt=""></div>
                 <div class="weui-cell__bd">
                     <p>公众号</p>
                     <p>获得更多资讯和服务</p>
@@ -63,6 +63,7 @@
     </div>
 </template>
 <script>
+import ResourceManager from '@/utils/resource';
     export default {
         data() {
             return {
@@ -78,6 +79,9 @@
             this.debouncedInput = this.debounce(this.handleInput, 900); // 900毫秒的防抖
         },
         methods: {
+          getIconPath(iconName) {
+            return ResourceManager.getAvatarPath(iconName)
+          },
             handleInput() {
                 console.log('当前输入:', this.inputValue);
                 // 添加输入的账号为好友
@@ -127,11 +131,11 @@
         border-bottom: 1px solid #d9d9d9;
         margin-top: 20px;
     }
-    
+
     .add-friend .icon-search {
         color: #40b938;
     }
-    
+
     .add-friend .search-line input {
         width: calc(100% - 30px);
         font-size: 16px;
@@ -140,18 +144,18 @@
         outline: none;
         vertical-align: middle;
     }
-    
+
     .add-friend .weui-cell__hd img {
         width: 35px;
         display: block;
         margin-right: 10px;
     }
-    
+
     .add-friend .weui-cell__bd p:last-child {
         font-size: 12px;
         color: #b7b7b7;
     }
-    
+
     .add-friend.weui-cell__bd p:first-child {
         font-size: 15px
     }

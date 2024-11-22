@@ -13,7 +13,7 @@
             <div class="home-pic-base">
                 <div class="top-pic">
                     <div class="top-pic-inner">
-                        <img src="/images/header/header01.png">
+                        <img :src="getIconPath('header/header01.png')">
                     </div>
                 </div>
                 <div class="top-name _ellipsis">阿荡</div>
@@ -21,7 +21,7 @@
         </div>
         <div class="weui-cell moments__post">
             <div class="weui-cell__hd">
-                <img src="/images/header/yehua.jpg">
+                <img :src="getIconPath('header/yehua.jpg')">
             </div>
             <div class="weui-cell__bd">
                 <!-- 人名链接 -->
@@ -38,7 +38,7 @@
                         class="thumbnail">
                         <a href="/images/header/yehua.jpg" itemprop="contentUrl"
                             data-size="400x400">
-                            <img src="/images/header/yehua.jpg" itemprop="thumbnail"
+                            <img :src="getIconPath('header/yehua.jpg')" itemprop="thumbnail"
                                 alt="Image description" />
                         </a>
                         <figcaption itemprop="caption description">Image 01</figcaption>
@@ -48,7 +48,7 @@
                         class="thumbnail">
                         <a href="/images/header/zhenji.jpg" itemprop="contentUrl"
                             data-size="400x400">
-                            <img src="/images/header/zhenji.jpg" itemprop="thumbnail"
+                            <img :src="getIconPath('header/zhenji.jpg')" itemprop="thumbnail"
                                 alt="Image description" />
                         </a>
                         <figcaption itemprop="caption description">Image 02</figcaption>
@@ -75,7 +75,7 @@
 
         <div class="weui-cell moments__post">
             <div class="weui-cell__hd">
-                <img src="/images/header/yehua.jpg">
+                <img :src="getIconPath('header/yehua.jpg')">
             </div>
             <div class="weui-cell__bd">
                 <!-- 人名链接 -->
@@ -92,7 +92,7 @@
                         class="thumbnail">
                         <a href="/images/header/yehua.jpg" itemprop="contentUrl"
                             data-size="400x400">
-                            <img src="/images/header/yehua.jpg" itemprop="thumbnail"
+                            <img :src="getIconPath('header/yehua.jpg')" itemprop="thumbnail"
                                 alt="Image description" />
                         </a>
                         <figcaption itemprop="caption description">Image 01</figcaption>
@@ -102,7 +102,7 @@
                         class="thumbnail">
                         <a href="/images/header/zhugeliang.jpg" itemprop="contentUrl"
                             data-size="400x400">
-                            <img src="/images/header/zhugeliang.jpg"
+                            <img :src="getIconPath('header/zhugeliang.jpg')"
                                 itemprop="thumbnail" alt="Image description" />
                         </a>
                         <figcaption itemprop="caption description">Image 02</figcaption>
@@ -127,7 +127,7 @@
         </div>
         <div class="weui-cell moments__post">
             <div class="weui-cell__hd">
-                <img src="/images/header/yehua.jpg">
+                <img :src="getIconPath('header/yehua.jpg')">
             </div>
             <div class="weui-cell__bd">
                 <!-- 人名链接 -->
@@ -144,7 +144,7 @@
                         class="thumbnail">
                         <a href="/images/header/baiqian.jpg" itemprop="contentUrl"
                             data-size="400x400">
-                            <img src="/images/header/baiqian.jpg" itemprop="thumbnail"
+                            <img :src="getIconPath('header/baiqian.jpg')" itemprop="thumbnail"
                                 alt="Image description" />
                         </a>
                         <figcaption itemprop="caption description">Image 01</figcaption>
@@ -154,7 +154,7 @@
                         class="thumbnail">
                         <a href="/images/header/yehua.jpg" itemprop="contentUrl"
                             data-size="400x400">
-                            <img src="/images/header/yehua.jpg" itemprop="thumbnail"
+                            <img :src="getIconPath('header/yehua.jpg')" itemprop="thumbnail"
                                 alt="Image description" />
                         </a>
                         <figcaption itemprop="caption description">Image 02</figcaption>
@@ -223,8 +223,13 @@
     import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
     import 'photoswipe/dist/photoswipe.css'
     import 'photoswipe/dist/default-skin/default-skin.css'
+    import ResourceManager from '@/utils/resource';
+
     export default {
         methods: {
+            getIconPath(iconName) {
+              return ResourceManager.getAvatarPath(iconName)
+            },
             initPhotoSwipeFromDOM(gallerySelector) {
                 var parseThumbnailElements = function (el) {
                     var thumbElements = el.childNodes,

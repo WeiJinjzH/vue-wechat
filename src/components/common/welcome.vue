@@ -1,51 +1,59 @@
 <template>
-    <div class="welcome" :class="{hide:hide}">
-        <img src="/images/welcome.jpg" alt="">
-    </div>
+  <div class="welcome" :class="{hide:hide}">
+    <img :src="getIconPath('welcome.jpg')" alt="">
+  </div>
 </template>
 <script>
+import ResourceManager from '@/utils/resource';
+
 export default {
-    data() {
-            return {
-                hide: false
-            }
-        },
-        mounted() {
-            setTimeout(() => {
-                this.hide = true
-            }, 1000)
-        }
+  data() {
+    return {
+      hide: false
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.hide = true
+    }, 1000)
+  },
+  methods: {
+    getIconPath(iconName) {
+      return ResourceManager.getAvatarPath(iconName)
+    },
+  }
 }
 </script>
 <style>
 /* 被注释掉的样式不适合部分安卓机 */
 .welcome {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 6;
-    background: #000b17;
-    animation: welcome 0.5s;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
- /*    -webkit-animation: welcome 0.5s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-    -webkit-animation-delay: 0.8s;
-    animation-delay: 0.8s; */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+  background: #000b17;
+  animation: welcome 0.5s;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  /*    -webkit-animation: welcome 0.5s;
+     -webkit-animation-fill-mode: forwards;
+     animation-fill-mode: forwards;
+     -webkit-animation-delay: 0.8s;
+     animation-delay: 0.8s; */
 }
 
 .welcome img {
-    width: 100%;
-}
-.welcome.hide{
-    opacity: 0;
-    visibility: hidden;
+  width: 100%;
 }
 
-/*     
+.welcome.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/*
     @keyframes welcome {
         0% {
             opacity: 1.0;

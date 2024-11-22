@@ -21,7 +21,7 @@
       <div class="tag"><span>朋友圈</span><span>文章</span><span>公众号</span><span>小说</span><span>音乐</span><span>表情</span></div>
       <div class="weui-cells">
           <a class="weui-cell weui-cell_access" href="javascript:;">
-            <div class="weui-cell__hd"><img src="/images/book.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+            <div class="weui-cell__hd"><img :src="getIconPath('book.png')" alt="" style="width:20px;margin-right:5px;display:block"></div>
             <div class="weui-cell__bd">
               <p>朋友圈热文</p>
             </div>
@@ -32,6 +32,7 @@
   </div>
 </template>
 <script>
+import ResourceManager from '@/utils/resource';
     export default {
         name: "search",
         data() {
@@ -46,6 +47,9 @@
                     this.$store.commit('toggleHeaderStatus', false)
                 }
             },
+          getIconPath(iconName) {
+            return ResourceManager.getAvatarPath(iconName)
+          },
             // 清除输入的内容 可以直接写 v-on:click="searchIpt=''"
             searchClear() {
                 this.searchIpt = ""
