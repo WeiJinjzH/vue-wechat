@@ -44,7 +44,7 @@
                     <p>我的二维码</p>
                 </div>
                 <div class="weui-cell__ft">
-                    <img src="/images/contact_add-friend-my-qr.png" style="vertical-align: middle;;width:24px" class="_align-middle">
+                    <img :src="getIconPath('contact_add-friend-my-qr.png')" @error="handleImageError" style="vertical-align: middle;;width:24px" class="_align-middle">
                 </div>
             </router-link>
             <div class="weui-cell">
@@ -98,6 +98,7 @@
     </div>
 </template>
 <script>
+import ResourceManager from '@/utils/resource';
     export default {
         data() {
             return {
@@ -109,33 +110,50 @@
         },
         created() {
             // 检查 localStorage 中是否有头像数据
-      const savedAvatar = localStorage.getItem('avatar');
-        if (savedAvatar) {
-            this.avatarURL = savedAvatar; // 初始化头像预览
-        }
-        // 检查 localStorage 中是否有昵称数据
-        const nickName = localStorage.getItem('nickName');
-        if (nickName) {
-            this.nickName = nickName;
-        }
-        const wechatId = localStorage.getItem('wechatId');
-        if (wechatId) {
-            this.wechatId = wechatId;
-        }
+            const savedAvatar = localStorage.getItem('avatar');
+            if (savedAvatar) {
+                this.avatarURL = savedAvatar; // 初始化头像预览
+            }
+            // 检查 localStorage 中是否有昵称数据
+            const nickName = localStorage.getItem('nickName');
+            if (nickName) {
+                this.nickName = nickName;
+            }
+            const wechatId = localStorage.getItem('wechatId');
+            if (wechatId) {
+                this.wechatId = wechatId;
+            }
         },
         methods: {
-      hanldeUpload(event) {
-        const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    this.avatarURL = e.target.result; // 更新头像预览
-                    localStorage.setItem('avatar', e.target.result); // 保存到 localStorage
-                };
-                reader.readAsDataURL(file);
-            }
-      },
-    },
+            hanldeUpload(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.avatarURL = e.target.result; // 更新头像预览
+                        localStorage.setItem('avatar', e.target.result); // 保存到 localStorage
+                    };
+                    reader.readAsDataURL(file);
+                }
+            },
+            getIconPath(iconName) {
+                return ResourceManager.getAvatarPath(iconName)
+            },
+            // getImagePath(imagePath) {
+            //     if (process.env.NODE_ENV === 'production') {
+            //         // 处理APK中的图片路径
+            //         if (window.plus) {
+            //             return `./static/images/${imagePath}`;
+            //         }
+            //     }
+            //     // 开发环境使用原路径
+            //     return require(`@/assets/images/${imagePath}`);
+            // },
+            // handleImageError(e) {
+            //     console.warn('Image load failed:', e);
+            //     e.target.src = this.fallbackImage;
+            // }
+        },
     }
 </script>
 <style lang="less" scoped>

@@ -13,7 +13,7 @@
             <div class="home-pic-base">
                 <div class="top-pic">
                     <div class="top-pic-inner">
-                        <img src="/images/header/header01.png">
+                        <img :src="getImagePath('header/header01.png')" @error="handleImageError">
                     </div>
                 </div>
                 <div class="top-name _ellipsis">阿荡</div>
@@ -27,9 +27,9 @@
             </div>
             <div class="post-content">
                 <div class="tumb-box">
-                    <img src="/images/header/header01.png" alt="">
-                    <img src="/images/header/header01.png" alt="">
-                    <img src="/images/header/header01.png" alt="">
+                    <img :src="getImagePath('header/header01.png')" @error="handleImageError" alt="">
+                    <img :src="getImagePath('header/header01.png')" @error="handleImageError" alt="">
+                    <img :src="getImagePath('header/header01.png')" @error="handleImageError" alt="">
                 </div>
                 <div class="thumb-desc">
                     这里字比较多，这里字比较多，这里字比较多，这里字比较多，这里字比较多，这里字比较多，这里字比较多，这里字比较多，这里字比较多，
@@ -44,8 +44,8 @@
             </div>
             <div class="post-content">
                 <div class="tumb-box">
-                    <img src="/images/header/header01.png" alt="">
-                     <img src="/images/header/header01.png" alt="">
+                    <img :src="getImagePath('header/header01.png')" @error="handleImageError" alt="">
+                    <img :src="getImagePath('header/header01.png')" @error="handleImageError" alt="">
                 </div>
                 <div class="thumb-desc">
                     装逼如风 常伴吾生
@@ -60,7 +60,7 @@
             </div>
             <div class="post-content">
                 <div class="tumb-box">
-                    <img src="/images/header/header01.png" alt="">
+                    <img :src="getImagePath('header/header01.png')" @error="handleImageError" alt="">
                 </div>
                 <div class="thumb-desc">
                     装逼如风 常伴吾生
@@ -71,7 +71,29 @@
     </div>
 </template>
 <script>
-    export default {}
+    export default {
+        data() {
+            return {
+                fallbackImage: './static/images/header/header01.png',
+            };
+        },
+        methods: {
+            getImagePath(imagePath) {
+                if (process.env.NODE_ENV === 'production') {
+                    // 处理APK中的图片路径
+                    if (window.plus) {
+                        return `./static/images/${imagePath}`;
+                    }
+                }
+                // 开发环境使用原路径
+                return require(`@/assets/images/${imagePath}`);
+            },
+            handleImageError(e) {
+                console.warn('Image load failed:', e);
+                e.target.src = this.fallbackImage;
+            }
+        },
+    }
 </script>
 <style lang="less">
     @import "../../assets/less/album.less";
