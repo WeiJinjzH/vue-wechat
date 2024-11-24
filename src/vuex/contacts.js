@@ -1,3 +1,9 @@
+import ResourceManager from '@/utils/resource';
+
+const getIconPath = (iconName) => {
+    return ResourceManager.getAvatarPath(iconName);
+  }
+
 /**
  * wxid-微信id
  * initial-姓名首字母
@@ -15,7 +21,7 @@
 const contacts = [{ //昵称备注都有的朋友
         "wxid": "wxid_zhaohd",
         "initial": 'z',
-        "headerUrl": "/images/header/header01.png",
+        "headerUrl": getIconPath("header/header01.png"),
         "nickname": "阿荡",
         "sex": 1,
         "remark": "阿荡",
@@ -34,17 +40,17 @@ const contacts = [{ //昵称备注都有的朋友
     {
         "wxid": "wxid_baiqian",
         "initial": 'b',
-        "headerUrl": "/images/header/baiqian.jpg",
+        "headerUrl": getIconPath("header/baiqian.jpg"),
         "nickname": "白浅",
         "sex": 0,
         "remark": "",
         "signature": "青丘女帝，天族天妃",
         "telphone": 18896586152,
         "album": [{
-            imgSrc: "/images/album/baiqian/baiqian01.jpeg",
+            imgSrc: getIconPath("album/baiqian/baiqian01.jpeg"),
             date: 182625262
         }, {
-            imgSrc: "/images/album/baiqian/baiqian02.jpeg",
+            imgSrc: getIconPath("album/baiqian/baiqian02.jpeg"),
             date: 182625262
         }],
         "area": ["青丘", "狐狸洞"],
@@ -57,17 +63,17 @@ const contacts = [{ //昵称备注都有的朋友
     }, { //昵称备注都有的朋友
         "wxid": "wxid_yehua",
         "initial": 'y',
-        "headerUrl": "/images/header/yehua.jpg",
+        "headerUrl": getIconPath("header/yehua.jpg"),
         "nickname": "夜华",
         "sex": 1,
         "remark": "夜华",
         "signature": "浅浅，过来",
         "telphone": 18896586152,
         "album": [{
-            imgSrc: "/images/album/guanyu/guanyu02.jpeg",
+            imgSrc: getIconPath("album/guanyu/guanyu02.jpeg"),
             date: 182625262
         }, {
-            imgSrc: "/images/album/baiqian/baiqian02.jpeg",
+            imgSrc: getIconPath("album/baiqian/baiqian02.jpeg"),
             date: 182625262
         }],
         "area": ["九重天", "洗梧宫"],
@@ -81,17 +87,17 @@ const contacts = [{ //昵称备注都有的朋友
     {
         "wxid": "wxid_liubei",
         "initial": 'l',
-        "headerUrl": "/images/header/liubei.jpg",
+        "headerUrl": getIconPath("header/liubei.jpg"),
         "nickname": "刘备",
         "sex": 1,
         "remark": "刘备",
         "signature": "惟贤惟德，仁服于人",
         "telphone": 18896586152,
         "album": [{
-            imgSrc: "/images/album/guanyu/guanyu02.jpeg",
+            imgSrc: getIconPath("album/guanyu/guanyu02.jpeg"),
             date: 182625262
         }, {
-            imgSrc: "/images/album/baiqian/baiqian01.jpeg",
+            imgSrc: getIconPath("album/baiqian/baiqian01.jpeg"),
             date: 182625262
         }],
         "area": ["蜀国", "荆州"],
@@ -105,17 +111,17 @@ const contacts = [{ //昵称备注都有的朋友
     {
         "wxid": "wxid_guangyu",
         "initial": 'g',
-        "headerUrl": "/images/header/guangyu.jpg",
+        "headerUrl": getIconPath("header/guangyu.jpg"),
         "nickname": "关羽",
         "sex": 1,
         "remark": "关羽",
         "signature": "观尔乃插标卖首",
         "telphone": 18896586152,
         "album": [{
-            imgSrc: "/images/album/baiqian/baiqian02.jpeg",
+            imgSrc: getIconPath("album/baiqian/baiqian02.jpeg"),
             date: 182625262
         }, {
-            imgSrc: "/images/album/guanyu/guanyu01.jpeg",
+            imgSrc: getIconPath("album/guanyu/guanyu01.jpeg"),
             date: 182625262
         }],
         "area": ["蜀国", "荆州"],
@@ -129,17 +135,17 @@ const contacts = [{ //昵称备注都有的朋友
     {
         "wxid": "wxid_zhugeliang",
         "initial": 'z',
-        "headerUrl": "/images/header/zhugeliang.jpg",
+        "headerUrl": getIconPath("header/zhugeliang.jpg"),
         "nickname": "诸葛亮",
         "sex": 1,
         "remark": "诸葛亮",
         "signature": "你可识得此阵？",
         "telphone": 18896586152,
         "album": [{
-            imgSrc: "/images/album/baiqian/baiqian01.jpeg",
+            imgSrc: getIconPath("album/baiqian/baiqian01.jpeg"),
             date: 182625262
         }, {
-            imgSrc: "/images/album/guanyu/guanyu01.jpeg",
+            imgSrc: getIconPath("album/guanyu/guanyu01.jpeg"),
             date: 182625262
         }],
         "area": ["蜀国", "荆州"],
@@ -153,14 +159,14 @@ const contacts = [{ //昵称备注都有的朋友
     {
         "wxid": "wxid_sunshangxiang",
         "initial": 's',
-        "headerUrl": "/images/header/sunshangxiang.jpg",
+        "headerUrl": getIconPath("header/sunshangxiang.jpg"),
         "nickname": "孙尚香",
         "sex": 0,
         "remark": "孙尚香2",
         "signature": "夫君,身体要紧~",
         "telphone": 18896586152,
         "album": [{
-            imgSrc: "/images/album/baiqian/baiqian02.jpeg",
+            imgSrc: getIconPath("album/baiqian/baiqian02.jpeg"),
             date: 182625262
         }],
         "area": ["吴国", "富春"],
@@ -174,14 +180,14 @@ const contacts = [{ //昵称备注都有的朋友
     {
         "wxid": "wxid_sunquan",
         "initial": 's',
-        "headerUrl": "/images/header/sunquan.jpg",
+        "headerUrl": getIconPath("header/sunquan.jpg"),
         "nickname": "孙权",
         "sex": 1,
         "remark": "孙权",
         "signature": "容我三思",
         "telphone": 18896586152,
         "album": [{
-            imgSrc: "/images/album/guanyu/guanyu01.jpeg",
+            imgSrc: getIconPath("album/guanyu/guanyu01.jpeg"),
             date: 182625262
         }],
         "area": ["吴国", "吴郡"],
@@ -195,14 +201,14 @@ const contacts = [{ //昵称备注都有的朋友
     {
         "wxid": "wxid_huangyueying",
         "initial": 'h',
-        "headerUrl": "/images/header/huangyueying.jpg",
+        "headerUrl": getIconPath("header/huangyueying.jpg"),
         "nickname": "黄月英",
         "sex": 0,
         "remark": "黄月英",
         "signature": "哼哼~",
         "telphone": 18896586152,
         "album": [{
-            imgSrc: "/images/album/guanyu/guanyu02.jpeg",
+            imgSrc: getIconPath("album/guanyu/guanyu02.jpeg"),
             date: 182625262
         }],
         "area": ["蜀", "荆州"],
@@ -215,14 +221,14 @@ const contacts = [{ //昵称备注都有的朋友
     }, {
         "wxid": "wxid_zhenji",
         "initial": 'z',
-        "headerUrl": "/images/header/zhenji.jpg",
+        "headerUrl": getIconPath("header/zhenji.jpg"),
         "nickname": "甄姬",
         "sex": 0,
         "remark": "甄姬",
         "signature": "仿佛兮若轻云之蔽月",
         "telphone": 18896586152,
         "album": [{
-            imgSrc: "/images/album/guanyu/guanyu01.jpeg",
+            imgSrc: getIconPath("album/guanyu/guanyu01.jpeg"),
             date: 182625262
         }],
         "area": ["魏", "荆州", "中山"],

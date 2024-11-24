@@ -103,7 +103,7 @@ import ResourceManager from '@/utils/resource';
         data() {
             return {
                 pageName: "个人信息",
-                avatarURL: '/images/header/header01.png',
+                avatarURL: this.getIconPath('header/header01.png'),
                 nickName: '阿荡',
                 wechatId: '10086',
             }

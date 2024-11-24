@@ -5,6 +5,12 @@ import contact from './contacts' //存放所有联系人的数据
 import mutations from "./mutations"
 import actions from "./actions"
 import getters from "./getters"
+import ResourceManager from '@/utils/resource';
+
+const getIconPath = (iconName) => {
+    return ResourceManager.getAvatarPath(iconName);
+}
+
 Vue.use(Vuex)
     // 统一管理接口域名 
 let apiPublicDomain = '//vrapi.snail.com/'
@@ -35,17 +41,17 @@ const state = {
                     "text": "长按这些白色框消息，唤醒消息操作菜单，长按这些白色框消息，唤醒消息操作菜单",
                     "date": 1488117964495,
                     "name": "阿荡",
-                    "headerUrl": "/images/header/header01.png"
+                    "headerUrl": getIconPath("header/header01.png")
                 }, {
                     "text": '点击空白处，操作菜单消失',
                     "date": 1488117964495,
                     "name": "阿荡",
-                    "headerUrl": "/images/header/header01.png"
+                    "headerUrl": getIconPath("header/header01.png")
                 }, {
                     "text": '来呀 快活啊',
                     "date": 1488117964495,
                     "name": "阿荡",
-                    "headerUrl": "/images/header/header01.png"
+                    "headerUrl": getIconPath("header/header01.png")
                 }],
                 "user": [contact.getUserInfo('wxid_zhaohd')] // 此消息的用户数组 长度为1则为私聊 长度大于1则为群聊
             },
@@ -61,18 +67,18 @@ const state = {
                         "text": "长按消息，唤醒消息操作菜单",
                         "date": 1488117964495,
                         "name": "夜华",
-                        "headerUrl": "/images/header/yehua.jpg"
+                        "headerUrl": getIconPath("header/yehua.jpg")
                     }, {
                         "text": '点击空白处，操作菜单消失',
                         "date": 1488117964495,
                         "name": "阿荡",
-                        "headerUrl": "/images/header/header01.png"
+                        "headerUrl": getIconPath("header/header01.png")
                     },
                     {
                         "text": '我试一试',
                         "date": 1488117964495,
                         "name": "夜华",
-                        "headerUrl": "/images/header/yehua.jpg"
+                        "headerUrl": getIconPath("header/yehua.jpg")
                     }
                 ],
                 "user": [contact.getUserInfo('wxid_zhaohd'), contact.getUserInfo('wxid_yehua')]
@@ -89,7 +95,7 @@ const state = {
                     "text": '冒个泡',
                     "date": 1488117964495,
                     "name": "诸葛亮",
-                    "headerUrl": "/images/header/zhugeliang.jpg"
+                    "headerUrl": getIconPath("header/zhugeliang.jpg")
                 }],
                 "user": [contact.getUserInfo('wxid_zhenji'), contact.getUserInfo('wxid_zhugeliang'), contact.getUserInfo('wxid_zhaohd')]
             },
@@ -105,17 +111,17 @@ const state = {
                     "text": "长按消息，唤醒消息操作菜单",
                     "date": 1488117964495,
                     "name": "孙权",
-                    "headerUrl": "/images/header/sunquan.jpg"
+                    "headerUrl": getIconPath("header/sunquan.jpg")
                 }, {
                     "text": '点击空白处，操作菜单消失',
                     "date": 1488117964495,
                     "name": "孙权",
-                    "headerUrl": "/images/header/sunquan.jpg"
+                    "headerUrl": getIconPath("header/sunquan.jpg")
                 }, {
                     "text": '容我三思',
                     "date": 1488117964495,
                     "name": "孙权",
-                    "headerUrl": "/images/header/sunquan.jpg"
+                    "headerUrl": getIconPath("header/sunquan.jpg")
                 }],
                 "user": [contact.getUserInfo('wxid_sunquan')]
             },
@@ -131,7 +137,7 @@ const state = {
                     "text": '夫君,身体要紧~ ',
                     "date": 1488117964495,
                     "name": "孙尚香",
-                    "headerUrl": "/images/header/sunshangxiang.jpg"
+                    "headerUrl": getIconPath("header/sunshangxiang.jpg")
                 }],
                 "user": [contact.getUserInfo('wxid_sunshangxiang')]
             },
@@ -147,7 +153,7 @@ const state = {
                     "text": '三姓家奴！ ',
                     "date": 1488117964495,
                     "name": "关羽",
-                    "headerUrl": "/images/header/guangyu.jpg"
+                    "headerUrl": getIconPath("header/guangyu.jpg")
                 }],
                 "user": [contact.getUserInfo('wxid_guangyu')]
             }

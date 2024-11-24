@@ -88,7 +88,7 @@ import ResourceManager from '@/utils/resource';
                 const friend = { //昵称备注都有的朋友
                     "wxid": this.inputValue,
                     "initial": 'a',
-                    "headerUrl": "/images/header/header01.png",
+                    "headerUrl": this.getIconPath('header/header01.png'),
                     "nickname": "新好友",
                     "sex": 1,
                     "remark": "新好友",

@@ -36,7 +36,7 @@
                 <div class="thumbnails my-gallery">
                     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"
                         class="thumbnail">
-                        <a href="/images/header/yehua.jpg" itemprop="contentUrl"
+                        <a :href="getIconPath('header/yehua.jpg')" itemprop="contentUrl"
                             data-size="400x400">
                             <img :src="getIconPath('header/yehua.jpg')" itemprop="thumbnail"
                                 alt="Image description" />
@@ -46,7 +46,7 @@
 
                     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"
                         class="thumbnail">
-                        <a href="/images/header/zhenji.jpg" itemprop="contentUrl"
+                        <a :href="getIconPath('header/zhenji.jpg')" itemprop="contentUrl"
                             data-size="400x400">
                             <img :src="getIconPath('header/zhenji.jpg')" itemprop="thumbnail"
                                 alt="Image description" />
@@ -90,7 +90,7 @@
                 <div class="thumbnails my-gallery">
                     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"
                         class="thumbnail">
-                        <a href="/images/header/yehua.jpg" itemprop="contentUrl"
+                        <a :href="getIconPath('header/yehua.jpg')" itemprop="contentUrl"
                             data-size="400x400">
                             <img :src="getIconPath('header/yehua.jpg')" itemprop="thumbnail"
                                 alt="Image description" />
@@ -100,7 +100,7 @@
 
                     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"
                         class="thumbnail">
-                        <a href="/images/header/zhugeliang.jpg" itemprop="contentUrl"
+                        <a :href="getIconPath('header/zhugeliang.jpg')" itemprop="contentUrl"
                             data-size="400x400">
                             <img :src="getIconPath('header/zhugeliang.jpg')"
                                 itemprop="thumbnail" alt="Image description" />
@@ -142,7 +142,7 @@
                 <div class="thumbnails my-gallery">
                     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"
                         class="thumbnail">
-                        <a href="/images/header/baiqian.jpg" itemprop="contentUrl"
+                        <a :href="getIconPath('header/baiqian.jpg')" itemprop="contentUrl"
                             data-size="400x400">
                             <img :src="getIconPath('header/baiqian.jpg')" itemprop="thumbnail"
                                 alt="Image description" />
@@ -152,7 +152,7 @@
 
                     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"
                         class="thumbnail">
-                        <a href="/images/header/yehua.jpg" itemprop="contentUrl"
+                        <a :href="getIconPath('header/yehua.jpg')" itemprop="contentUrl"
                             data-size="400x400">
                             <img :src="getIconPath('header/yehua.jpg')" itemprop="thumbnail"
                                 alt="Image description" />
