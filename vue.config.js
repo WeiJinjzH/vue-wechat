@@ -18,5 +18,12 @@ module.exports = {
       .use('url-loader')
       .loader('url-loader')
       .tap(options => Object.assign(options, { limit: 10240 }))
-  },
+    
+    config.module
+        .rule('fonts')
+        .test(/\.(woff|woff2|eot|ttf|otf|svg)$/)
+        .use('url-loader')
+        .loader('url-loader')
+        .tap(options => Object.assign(options, { limit: 10240, name: 'fonts/[name].[hash:8].[ext]' }))
+    },
 }
