@@ -44,7 +44,7 @@
                     <p>我的二维码</p>
                 </div>
                 <div class="weui-cell__ft">
-                    <img :src="getIconPath('contact_add-friend-my-qr.png')" @error="handleImageError" style="vertical-align: middle;;width:24px" class="_align-middle">
+                    <img :src="getIconPath('contact_add-friend-my-qr.png')" style="vertical-align: middle;;width:24px" class="_align-middle">
                 </div>
             </router-link>
             <div class="weui-cell">

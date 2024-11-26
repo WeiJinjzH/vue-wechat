@@ -51,6 +51,14 @@ const routes = [{
         }
     },
     {
+        path: '/contact/customize-friends',
+        name: "",
+        components: {
+            "default": resolve => require(["../components/contact/add-friend.vue"], resolve),
+            "subPage": resolve => require(["../components/contact/customize-friends.vue"], resolve)
+        }
+    },
+    {
         path: '/contact/details',
         name: "",
         components: {

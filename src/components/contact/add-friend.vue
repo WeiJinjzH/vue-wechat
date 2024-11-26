@@ -20,7 +20,7 @@
         </p>
         <div class="weui-cells">
             <a class="weui-cell weui-cell_access">
-                <div class="weui-cell__hd"><img :src="getIconPath('images/contact_add-friend-reda.png')" alt=""></div>
+                <div class="weui-cell__hd"><img :src="getIconPath('contact_add-friend-reda.png')" alt=""></div>
                 <div class="weui-cell__bd">
                     <p>雷达加朋友</p>
                     <p>添加身边的朋友</p>
@@ -85,26 +85,32 @@ import ResourceManager from '@/utils/resource';
             handleInput() {
                 console.log('当前输入:', this.inputValue);
                 // 添加输入的账号为好友
-                const friend = { //昵称备注都有的朋友
-                    "wxid": this.inputValue,
-                    "initial": 'a',
-                    "headerUrl": this.getIconPath('header/header01.png'),
-                    "nickname": "新好友",
-                    "sex": 1,
-                    "remark": "新好友",
-                    "signature": "很丰富，简介不了",
-                    "telphone": 15573220014,
-                    "album": [{
-                        imgSrc: ""
-                    }],
-                    "area": ["中国", "北京", "海淀"],
-                    "from": "",
-                    "tag": "",
-                    "desc": {
-                    }
-                };
-                this.$store.commit("addNewFriend", friend);
-                this.$router.back();
+                // const friend = { //昵称备注都有的朋友
+                //     "wxid": this.inputValue,
+                //     "initial": 'a',
+                //     "headerUrl": this.getIconPath('header/header01.png'),
+                //     "nickname": "新好友",
+                //     "sex": 1,
+                //     "remark": "新好友",
+                //     "signature": "很丰富，简介不了",
+                //     "telphone": 15573220014,
+                //     "album": [{
+                //         imgSrc: ""
+                //     }],
+                //     "area": ["中国", "北京", "海淀"],
+                //     "from": "",
+                //     "tag": "",
+                //     "desc": {
+                //     }
+                // };
+                // this.$store.commit("addNewFriend", friend);
+                // this.$router.back();
+                this.$router.push({
+                    path: '/contact/customize-friends',
+                    query: {
+                        wxid: this.inputValue,
+                    },
+                });
             },
             debounce(func, delay) {
                 let timeout;
