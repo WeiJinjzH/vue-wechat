@@ -27,9 +27,27 @@
         </div>
         <div class="weui-cell">
             <div class="weui-cell__bd">
+                <p>备注</p>
+            </div>
+            <input class="cell-input" type="text" v-model="remarkName" />
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
                 <p>微信号</p>
             </div>
             <input class="cell-input" type="text" v-model="wechatId" :disabled="wechatId" />
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>性别</p>
+            </div>
+            <input class="cell-input" type="text" v-model="gender" />
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>地区</p>
+            </div>
+            <input class="cell-input" type="text" v-model="area" />
         </div>
     </div>
   </div>
@@ -42,6 +60,9 @@ export default {
         avatarURL: '',
         nickName: '',
         wechatId: this.$route.query?.wxid,
+        gender: '',
+        area: '',
+        remarkName: '',
     };
   },
   methods: {
@@ -58,26 +79,26 @@ export default {
     handleSave() {
         // 保存好友
         // 添加输入的账号为好友
-        // const friend = { //昵称备注都有的朋友
-        //     "wxid": this.inputValue,
-        //     "initial": 'a',
-        //     "headerUrl": this.getIconPath('header/header01.png'),
-        //     "nickname": "新好友",
-        //     "sex": 1,
-        //     "remark": "新好友",
-        //     "signature": "很丰富，简介不了",
-        //     "telphone": 15573220014,
-        //     "album": [{
-        //         imgSrc: ""
-        //     }],
-        //     "area": ["中国", "北京", "海淀"],
-        //     "from": "",
-        //     "tag": "",
-        //     "desc": {
-        //     }
-        // };
-        // this.$store.commit("addNewFriend", friend);
-        // this.$router.back();
+        const friend = { //昵称备注都有的朋友
+            "wxid": this.$route.query?.wxid,
+            "initial": 'a',
+            "headerUrl": this.avatarURL,
+            "nickname": this.nickName,
+            "sex": this.gender === '男' ? 1 : 2,
+            "remark": this.remarkName,
+            "signature": "很丰富，简介不了",
+            "telphone": 15573220014,
+            "album": [{
+                imgSrc: ""
+            }],
+            "area": [this.area],
+            "from": "",
+            "tag": "",
+            "desc": {
+            }
+        };
+        this.$store.commit("addNewFriend", friend);
+        this.$router.back();
     }
   }
 };
