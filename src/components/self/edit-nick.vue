@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     handleSave() {
-        if (this.$route.query.oldName === '设置名字') {
+        if (this.$route.query.actionName === '设置名字') {
             localStorage.setItem('nickName', this.nickName);
         } else {
             localStorage.setItem('wechatId', this.nickName);

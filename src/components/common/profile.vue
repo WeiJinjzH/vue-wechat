@@ -19,7 +19,7 @@
                     <img :src="avatarURL" style="width: 50px;height: 50px;border-radius: 4px;">
                 </div>
             </div>
-            <router-link :to="{path:'/self/profile/edit-nick',query: { actionName: '设置名字', oldName: '阿荡'}}">
+            <router-link :to="{path:'/self/profile/edit-nick',query: { actionName: '设置名字', oldName: nickName }}">
                 <div class="weui-cell">
                 <div class="weui-cell__bd">
                     <p>名字</p>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             </router-link>
-            <router-link :to="{path:'/self/profile/edit-nick',query: { actionName: '设置微信号', oldName: '10086'}}">
+            <router-link :to="{path:'/self/profile/edit-nick',query: { actionName: '设置微信号', oldName: wechatId }}">
                 <div class="weui-cell">
                 <div class="weui-cell__bd">
                     <p>微信号</p>
